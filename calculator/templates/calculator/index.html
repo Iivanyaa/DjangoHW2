@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты</title>
+</head>
+<body>
+    {% for recipe, ingredients in recipes.items %}
+        {% if recipe in path %}
+        <p>{{recipe}}<p/>
+            {%for ingredient, serving in ingredients.items %}
+                <p>{{ingredient}}: {{serving_times_servings}}<p/>
+            {% endfor %}          
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

@@ -22,7 +22,7 @@ DATA = {
 }
 
 def index(request):
-    servings = request.GET.get('servings', 1)
+    servings = int(request.GET.get("servings", 1))
     path = request.path
     context = {
         'recipes': {},
@@ -32,7 +32,6 @@ def index(request):
     for recipe in DATA.keys():
         context['recipes'][recipe] = DATA[recipe]
         for ingredient, serving in DATA[recipe].items():
-            context['recipes'][recipe][ingredient] = DATA[recipe][ingredient]
-    context['serving_times_servings'] = serving * servings
-
+            context['recipes'][recipe][ingredient] = DATA[recipe][ingredient] * servings
+    
     return render(request, 'calculator/index.html', context)

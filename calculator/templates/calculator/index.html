@@ -9,7 +9,7 @@
         {% if recipe in path %}
         <p>{{recipe}}<p/>
             {%for ingredient, serving in ingredients.items %}
-                <p>{{ingredient}}: {{serving_times_servings}}<p/>
+                <p>{{ingredient}}: {{serving}}<p/>
             {% endfor %}          
         {% endif %}
     {% endfor %}
